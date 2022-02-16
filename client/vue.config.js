@@ -1,4 +1,4 @@
-const path = require('path');
+//const path = require('path');
 
 module.exports = {
   pwa: {
@@ -7,8 +7,8 @@ module.exports = {
       swSrc: 'public/service-worker.js',
     },
     manifestOptions: {
-      name: 'Sleep Tracker',
-      short_name: 'Sleep Tracker',
+      name: 'Sleep-Tracker',
+      short_name: 'sleeptracker',
       theme_color: '#E7E4D6',
       background_color: '#96909A',
       icons: [
@@ -87,4 +87,8 @@ module.exports = {
       ],
     },
   },
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 };
