@@ -1,55 +1,66 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+    <v-app-bar app>
+      <div class="text-center max-auto" v-if="$route.name == 'About'">
+        <v-icon>mdi-account</v-icon>
+        <span class="mx-5">Currently Logged in: {{ uname }}</span>
       </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
-
     <v-main>
-      <router-view/>
+      <router-view :sleepdata="sleepData" />
     </v-main>
+    <v-bottom-navigation v-if="$route.name != 'Login'" elevation="2" height="80">
+      <v-btn :to="$route.name == 'Home' ? '/about' : '/'" elevation="4" fab outlined class="rounded-circle ml-auto"
+        ><img src="./assets/logo.png" style="width: 4%" alt=""
+      /></v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   name: 'App',
 
   data: () => ({
-    //
+    sleepData: [],
+    uname: '',
   }),
+  methods: {
+    async getData() {
+      const res = await axios({
+        url: 'http://localhost:3000/sleepdata/1',
+        method: 'GET',
+      });
+      console.log(res.data);
+
+      this.sleepData = res.data;
+    },
+    checkForLogin() {
+      const loginToken = localStorage.getItem('user');
+      if (!loginToken) {
+        this.$router.push({ path: '/login' });
+        return false;
+      } else {
+        return true;
+      }
+    },
+    async getUser() {
+      const UserId = localStorage.getItem('user');
+      const res = await axios({
+        url: `http://localhost:3000/user/${UserId}`,
+        method: 'GET',
+      });
+      this.uname = res.data.name;
+      console.log(res);
+    },
+  },
+  created() {
+    if (this.checkForLogin()) {
+      this.getData();
+      this.getUser();
+    }
+  },
 };
 </script>

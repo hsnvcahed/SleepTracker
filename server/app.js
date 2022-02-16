@@ -9,6 +9,8 @@ const { notFound, errorHandler } = require('./middleware/errorHandler');
 require('colors');
 require('dotenv').config();
 
+const app = express();
+
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/public')));
