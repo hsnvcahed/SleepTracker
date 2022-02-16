@@ -25,6 +25,7 @@ export default {
       });
       localStorage.setItem('user', res.data.id);
       this.$router.push({ path: '/' });
+      this.$emit('loggedIn');
     },
   },
 };

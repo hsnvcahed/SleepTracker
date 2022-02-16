@@ -7,13 +7,13 @@
       </div>
     </v-app-bar>
     <v-main>
-      <router-view :sleepdata="sleepData" />
+      <router-view @loggedIn="getData()" class="my-10" :sleepdata="sleepData" />
     </v-main>
-    <v-bottom-navigation v-if="$route.name != 'Login'" elevation="2" height="80">
+    <v-footer :fixed="true" v-if="$route.name != 'Login'" elevation="3">
       <v-btn :to="$route.name == 'Home' ? '/about' : '/'" elevation="4" fab outlined class="rounded-circle ml-auto"
         ><img src="./assets/logo.png" style="width: 4%" alt=""
       /></v-btn>
-    </v-bottom-navigation>
+    </v-footer>
   </v-app>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   methods: {
     async getData() {
       const res = await axios({
-        url: 'http://localhost:3000/sleepdata/1',
+        url: `http://localhost:3000/sleepdata/${localStorage.getItem('user')}`,
         method: 'GET',
       });
       console.log(res.data);
