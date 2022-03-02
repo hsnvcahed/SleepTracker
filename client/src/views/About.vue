@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="d-flex justify-center text-center">
       <v-col>
-        <v-btn class="rounded-pill green white--text mx-3" @click="logout">Log Out</v-btn>
+        <v-btn style="background-color: #96909a" class="rounded-pill white--text mx-3" @click="logout">Log Out</v-btn>
       </v-col>
     </v-row>
   </v-container>

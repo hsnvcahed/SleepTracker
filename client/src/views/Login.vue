@@ -4,7 +4,7 @@
       <p class="text-h4">Please Log in</p>
 
       <v-text-field v-model="userInput" class="mt-15" label="Username"></v-text-field>
-      <v-btn @click="login" class="rounded-pill green white--text outlined">Login</v-btn>
+      <v-btn @click="login" style="background-color: #96909a" class="rounded-pill white--text outlined">Login</v-btn>
     </v-col>
   </v-container>
 </template>

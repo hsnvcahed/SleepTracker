@@ -2,56 +2,25 @@
   {
     "user_id": 1,
     "wakeup": "08:00",
-    "sleep": "22:10"
+    "sleep": "22:00",
+    "date": "2020-02-18"
   },
   {
     "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
+    "wakeup": "09:00",
+    "sleep": "22:00",
+    "date": "2020-02-19"
   },
   {
     "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
+    "wakeup": "12:00",
+    "sleep": "19:00",
+    "date": "2020-02-20"
   },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  },
-  {
-    "user_id": 1,
-    "wakeup": "08:00",
-    "sleep": "22:10"
-  }
+   {
+     "user_id": 1,
+     "wakeup": "10:00",
+     "sleep": "21:00",
+     "date": "2020-02-20"
+   }
 ]
