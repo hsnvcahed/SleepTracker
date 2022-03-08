@@ -26,11 +26,12 @@ export default {
   data: () => ({
     sleepData: [],
     uname: '',
+    serverAddress: process.env.VUE_APP_SERVER,
   }),
   methods: {
     async getData() {
       const res = await axios({
-        url: `http://localhost:3000/sleepdata/${localStorage.getItem('user')}`,
+        url: `${this.serverAddress}/sleepdata/${localStorage.getItem('user')}`,
         method: 'GET',
       });
       console.log(res.data);
@@ -49,7 +50,7 @@ export default {
     async getUser() {
       const UserId = localStorage.getItem('user');
       const res = await axios({
-        url: `http://localhost:3000/user/${UserId}`,
+        url: `${this.serverAddress}/user/${UserId}`,
         method: 'GET',
       });
       this.uname = res.data.name;
