@@ -19,8 +19,10 @@ export default {
   },
   methods: {
     async login() {
+      console.log('THIS IS A NEW FUNCTION');
+
       const res = await axios({
-        url: `http://localhost:3000/user/${this.userInput}`,
+        url: `${process.env.VUE_APP_SERVER}/user/${this.userInput}`,
         method: 'Get',
       });
       localStorage.setItem('user', res.data.id);

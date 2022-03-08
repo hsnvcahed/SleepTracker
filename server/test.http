@@ -1,2 +1,8 @@
 GET http://localhost:3000/user/ronic
 ###
+POST http://localhost:3000/notify
+Content-Type: application/json
+
+{
+    "message": "This is a test"
+}
